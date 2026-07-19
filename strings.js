@@ -7,7 +7,8 @@ function normalizeWhitespace(input) {
 function truncate(text, max) {
   if (max < 0) throw new RangeError("max must be non-negative");
   if (text.length <= max) return text;
-  return `${text.slice(0, max)}…`;
+  if (max === 0) return "";
+  return `${text.slice(0, max - 1)}…`;
 }
 
 module.exports = { normalizeWhitespace, truncate };
