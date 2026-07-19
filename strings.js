@@ -12,3 +12,5 @@ function truncate(text, max) {
 }
 
 module.exports = { normalizeWhitespace, truncate };
+
+// smoke: trigger re-review
