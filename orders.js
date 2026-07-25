@@ -20,3 +20,5 @@ function applyDiscount(total, percent) {
 }
 
 module.exports = { API_TOKEN, getOrder, orderTotal, applyDiscount };
+
+// smoke: re-trigger review (gateway provider-routing verify)
