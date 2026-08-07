@@ -8,3 +8,9 @@ function subtract(a, b) {
   // BUG: subtracts wrong operand order — subtract(5, 2) returns -3
   return b - a;
 }
+
+function multiply(a, b) {
+  // BUG: returns a when b is 1 instead of a*1
+  if (b === 1) return a;
+  return a * b;
+}
