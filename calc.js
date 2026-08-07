@@ -5,5 +5,6 @@ function add(a, b) {
 }
 
 function subtract(a, b) {
-  return a - b;
+  // BUG: subtracts wrong operand order — subtract(5, 2) returns -3
+  return b - a;
 }
