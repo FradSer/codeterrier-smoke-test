@@ -1,3 +1,0 @@
-scopes:
-    - name: calc
-      description: core arithmetic logic and operational functions located in calc.js; does not cover repository configuration or documentation
