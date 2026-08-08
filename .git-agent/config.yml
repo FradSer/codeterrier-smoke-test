@@ -1,3 +1,3 @@
 scopes:
     - name: calc
-      description: core mathematical logic and arithmetic operations within calc.js; does not cover documentation or testing suites
+      description: core arithmetic logic and operational functions located in calc.js; does not cover repository configuration or documentation
