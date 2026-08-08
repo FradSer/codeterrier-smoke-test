@@ -1,0 +1,3 @@
+scopes:
+    - name: calc
+      description: core mathematical logic and arithmetic operations within calc.js; does not cover documentation or testing suites
