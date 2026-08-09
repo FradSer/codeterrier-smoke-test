@@ -1,0 +1,3 @@
+scopes:
+    - name: src
+      description: core application business logic and module implementation within src/; does not cover top-level root utilities
