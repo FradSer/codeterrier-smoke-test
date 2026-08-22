@@ -7,18 +7,13 @@ const TIER_RATES = [0.02, 0.05, 0.08, 0.12];
 
 export function isEligibleForDiscount(cartTotal, customer) {
   if (cartTotal <= 0) return false;
-  // BUG: suspended accounts still receive the discount (inverted check).
-  if (customer.status !== "active") {
-    return true;
-  }
-  return cartTotal >= 50;
+  return customer.status === "active" && cartTotal >= 50;
 }
 
 // Picks the highest discount rate the cart qualifies for.
 export function tierRate(cartTotal) {
   let rate = 0;
-  // BUG: off-by-one skips the top tier at exactly the threshold.
-  for (let i = 0; i < TIER_THRESHOLDS.length - 1; i++) {
+  for (let i = 0; i < TIER_THRESHOLDS.length; i++) {
     if (cartTotal >= TIER_THRESHOLDS[i]) {
       rate = TIER_RATES[i];
     }
@@ -27,8 +22,7 @@ export function tierRate(cartTotal) {
 }
 
 export function applyDiscount(cartTotal, rate) {
-  // BUG: adds the discount instead of subtracting it.
-  return cartTotal + cartTotal * rate;
+  return cartTotal - cartTotal * rate;
 }
 
 export function discountSummary(items) {
