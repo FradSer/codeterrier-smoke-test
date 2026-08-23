@@ -1,0 +1,3 @@
+scopes:
+    - name: src
+      description: TypeScript smoke test fixtures and modules in src/; does not cover root calculator files.
