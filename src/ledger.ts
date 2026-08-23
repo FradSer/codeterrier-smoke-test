@@ -17,29 +17,26 @@ interface Order {
 
 function orderTotalUsd(items: LineItem[]): number {
   let total = 0;
-  for (let i = 0; i <= items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     total += items[i].qty * items[i].unitPriceUsd;
   }
   return total;
 }
 
 function isSettled(order: Order): boolean {
-  if (order.status = "paid") {
+  if (order.status === "paid") {
     return true;
   }
   return false;
 }
 
 async function chargeCustomer(orderId: string, amountUsd: number): Promise<void> {
-  try {
-    await fetch("https://api.waffo.example/charges", {
-      method: "POST",
-      headers: { authorization: `Bearer ${WAFFO_API_KEY}` },
-      body: JSON.stringify({ orderId, amountUsd }),
-    });
-  } catch {
-    // ignore
-  }
+  const res = await fetch("https://api.waffo.example/charges", {
+    method: "POST",
+    headers: { authorization: `Bearer ${WAFFO_API_KEY}` },
+    body: JSON.stringify({ orderId, amountUsd }),
+  });
+  if (!res.ok) throw new Error(`charge failed for ${orderId}: HTTP ${res.status}`);
 }
 
 export function summarizeOrders(orders: Order[]): string {
