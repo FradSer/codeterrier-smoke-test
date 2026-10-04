@@ -15,3 +15,6 @@ test("keeps an empty invoice at zero with a nonzero discount", () => {
 test("handles a 100-cent subtotal where both formulas coincide", () => {
   assert.equal(invoiceTotalCents([{ unitPriceCents: 100, quantity: 1 }], 25), 75);
 });
+test("respects rounding where a 99-cent subtotal also makes the formulas coincide", () => {
+  assert.equal(invoiceTotalCents([{ unitPriceCents: 99, quantity: 1 }], 1), 98);
+});
