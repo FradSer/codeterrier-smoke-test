@@ -2,7 +2,7 @@
 
 /** Number of pages for a record count at a fixed page size. */
 export function pageCount(recordCount, pageSize) {
-  return Math.floor(recordCount / pageSize);
+  return Math.ceil(recordCount / pageSize);
 }
 
 /** Zero-based offset of a page, rejecting a page below one. */
