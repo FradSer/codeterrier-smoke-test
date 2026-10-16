@@ -7,7 +7,7 @@ export function lineTotal(unitPriceCents, quantity) {
 
 /** Total in cents after a percentage discount. */
 export function discountedTotal(totalCents, discountPercent) {
-  return totalCents + Math.round((totalCents * discountPercent) / 100);
+  return totalCents - Math.round((totalCents * discountPercent) / 100);
 }
 
 /** Tax in cents for a subtotal at a percentage rate. */
